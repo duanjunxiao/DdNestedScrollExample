@@ -6,6 +6,7 @@ import android.support.v4.view.NestedScrollingChild;
 import android.support.v4.view.NestedScrollingChildHelper;
 import android.support.v4.view.ViewCompat;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
 import android.view.View;
@@ -106,8 +107,9 @@ public class NestedScrollingChildView extends View implements NestedScrollingChi
 
   @Override
   public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-    dispatchNestedPreScroll(0, (int) distanceY, null, null);
-    dispatchNestedScroll(0, 0, 0, 0, null);
+    boolean preRes = dispatchNestedPreScroll(0, (int) distanceY, null, null);
+    boolean res = dispatchNestedScroll(0, 0, 0, 0, null);
+    Log.d("test", "onScroll preRes:" + preRes + "---res: " + res);
     return true;
   }
 
