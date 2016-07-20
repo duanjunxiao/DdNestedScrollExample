@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:fitsSystemWindows="true"
     tools:context=".TestActivity">
 
@@ -18,25 +18,32 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             android:theme="@style/AppTheme.AppBarOverlay"
-            app:layout_scrollFlags="scroll|enterAlways"
+            app:layout_scrollFlags="scroll"
             app:popupTheme="@style/AppTheme.PopupOverlay"
-            app:title="TestActivity"/>
+            app:title="TestActivity" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:background="@android:color/holo_blue_bright"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:gravity="center"
-            android:text="test title"/>
+            android:text="test title"
+            app:layout_scrollFlags="scroll|enterAlways"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            />
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tableLayout"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            />
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </android.support.design.widget.CoordinatorLayout>

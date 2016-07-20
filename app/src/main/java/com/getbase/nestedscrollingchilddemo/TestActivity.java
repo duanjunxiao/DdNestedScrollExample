@@ -3,6 +3,7 @@ package com.getbase.nestedscrollingchilddemo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
@@ -14,7 +15,7 @@ public class TestActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test);
+        setContentView(R.layout.activity_test2);
         initViews();
     }
 
@@ -23,8 +24,10 @@ public class TestActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         TabLayout tableLayout = (TabLayout) findViewById(R.id.tableLayout);
-        tableLayout.addTab(tableLayout.newTab().setText("tab0"));
-        tableLayout.addTab(tableLayout.newTab().setText("tab1"));
-        tableLayout.addTab(tableLayout.newTab().setText("tab2"));
+
+        TestPagerAdapter pagerAdapter = new TestPagerAdapter(getSupportFragmentManager());
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager.setAdapter(pagerAdapter);
+        tableLayout.setupWithViewPager(viewPager);
     }
 }
